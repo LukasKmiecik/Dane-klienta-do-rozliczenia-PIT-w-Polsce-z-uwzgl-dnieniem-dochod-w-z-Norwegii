@@ -14,7 +14,6 @@
     </h1>
 
     <!-- FORM -->
-
     <form id="contactForm">
       <h3>1.</h3>
 
@@ -426,19 +425,22 @@
       może spowodować uszczuplenie zobowiązania podatkowego, a co za tym idzie
       sankcje karne.
     </h3>
-  </form>
 
 
-  <form id="contactForm">
+  
     <!-- Tutaj dodaj pozostałe pola formularza -->
 
-    <button type="button" id="generatePdfBtn">Wyslij</button>
+    <button type="button" id="generatePdfBtn" onclick="saveAndSendForm()">Wyslij</button>
   </form>
 
     <script src="./scripts/scriptForm.js"></script>
-    <script src= "./scripts/dateCheck.js"></script>
+    <script src="./scripts/dateCheck.js"></script>
     <script src="./scripts/ulgi.js"></script>
     <script src="./scripts/mailCheck.js"></script>
     <script src="./scripts/peselCheck.js"></script>
+    <script src="./scripts/sender.js"></script>
+    <!--  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   </body>
 </html>
