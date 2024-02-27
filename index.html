@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/formStyle.css" />
+    <link rel="stylesheet" href="./style/dateCheck.css" />
+  </head>
+  <body>
+    <h1>
+      Dane klienta do rozliczenia PIT w Polsce z uwzględnieniem dochodów z
+      Norwegii
+    </h1>
+
+    <!-- FORM -->
+
+    <form id="contactForm">
+      <h3>1.</h3>
+
+      <label for="p1">Imię:</label>
+      <input type="text" id="p1" name="p1" required />
+
+      <h3>2.</h3>
+      <label for="p2">Nazwisko:</label>
+      <input type="text" id="p2" name="p2" required />
+
+      <h3>3.</h3>
+      <label for="p3">Numer telefonu:</label>
+      <input
+        type="tel"
+        id="p3"
+        name="p3"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+        placeholder="123-456-789"
+        required
+      />
+
+      <h3>4.</h3>
+      <label for="p4">Adres e-mail:</label>
+      <input
+        type="email"
+        id="p4"
+        name="p4"
+        placeholder="wpisz@twójemail.com"
+        required
+      />
+
+      <h3>5.</h3>
+      <label for="p5">PESEL:</label>
+      <input type="number" id="p5" name="p5" required />
+
+      <h3>6.</h3>
+      <label for="p6"
+        >Adres zamieszkania (to adres, który Podatnik podaje w PIT przy
+        rozliczeniu w Urzędzie Skarbowym):</label
+      >
+      <label for="p6-ulica-zamieszkania">Ulica i numer domu:</label>
+      <input
+        type="text"
+        id="p6-ulica-zamieszkania"
+        name="p6-ulica-zamieszkania"
+        required
+      />
+
+      <label for="p6-kod-zamieszkania">Kod pocztowy i miejscowość:</label>
+      <input
+        type="text"
+        id="p6-kod-zamieszkania"
+        name="p6-kod-zamieszkania"
+        required
+      />
+
+
+      <label for="p6-kraj-zamieszkania">Kraj:</label>
+      <input id="p6-kraj-zamieszkania" name="p6-kraj-zamieszkania" required />
+
+      <h3>7.</h3>
+      <h2>Nazwa i adres Urzędu Skarbowego</h2>
+      <label for="p7">Nazwa Urzędu Skarbowego:</label>
+      <input type="text" id="p7" name="p7" required />
+
+      <label for="p7-ulica-us">Ulica i numer domu:</label>
+      <input type="text" id="p7-ulica-us" name="p7-ulica-us" required />
+
+      <label for="p7-kod-us">Kod pocztowy i miejscowość:</label>
+      <input type="text" id="p7-kod-us" name="p7-kod-us" required />
+
+      <label for="p7-kraj-us">Kraj:</label>
+      <input id="p7-kraj-us" name="p7-kraj-us" required />
+
+      <h3>8.</h3>
+      <label for="p8"
+        >Czy w 2023 roku (lub w roku, za który sporządzane jest zeznanie roczne)
+        Podatnik prowadził działalność gospodarczą ? Należy podać nawet wtedy,
+        gdy działalność była zawieszona przez cały rok?</label
+      >
+      <select id="p8-opcje" name="p8-opcje">
+        <option value="p8-opcja1">tak</option>
+        <option value="p8-opcja2">nie</option>
+      </select>
+
+      <div class="divp9">
+        <h3>9.</h3>
+        <label id="p9" for="p9">NIP:</label>
+        <input type="number" id="p9" name="p9" required />
+
+        <h3>10.</h3>
+        <label for="p10">Jaka forma opodatkowania</label><br />
+        <select id="p10-opcje" name="p10-opcje">
+          <option value="p10-opcja1">ksiazka rozchodow/przychodow</option>
+          <option value="p10-opcja2">
+            ryczalt lub karta podatkowa
+          </option></select
+        ><br />
+
+        <div class="divp10">
+          <select id="p10a-opcje" name="p10a-opcje">
+            <option value="p10a-opcja1">Skala podatkowa</option>
+            <option value="p10a-opcja2">Podatek liniowy</option>
+            <option value="p10a-opcja3" selected>wybierz</option>
+          </select>
+        </div>
+
+        <div class="div7" >
+          <label>Brak możliwości rozliczenia się ze współmałżonkiem </label>
+        </div>
+
+        <div class="divPlik10">
+        <form 
+          action="/przetwarzaj-plik"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label for="plik1">Wybierz plik do przesłania:</label>
+          <input type="file" id="plik1" name="plik1" /><br /><br />
+        </form>
+      </div>
+      </div>
+
+
+
+
+      <h3>11.</h3>
+      <label for="p11">Czy Podatnik chce się rozliczyć z żoną/mężem</label
+      ><br />
+      <select id="p11-opcje" name="p11-opcje">
+        <option value="p11-opcja1">tak</option>
+        <option value="p11-opcja2" selected >nie</option>
+      </select>
+
+      <!-- jesli tak -->
+      <div class="divp11">
+        <label for="p12">Imię zony/meza:</label>
+        <input type="text" id="p12" name="p12" required />
+
+        <label for="p13">PESEL:</label>
+        <input type="number" id="p13" name="p13" required />
+
+        <label for="p14"
+          >Czy adres zamieszkania żony/męża jest taki sam jak Podatnika? </label
+        ><br />
+
+        <select id="p14-opcje" name="p14-opcje">
+          <option value="p14-opcja1">nie</option>
+          <option value="p14-opcja2">tak</option>
+        </select>
+
+        <div class="divp14">
+        <h2>adres</h2>
+        <label for="p14-ulica-zamieszkania">Ulica i numer domu:</label>
+      <input
+        type="text"
+        id="p14-ulica-zamieszkania"
+        name="p14-ulica-zamieszkania"
+        required
+      />
+
+      <label for="p14-kod-zamieszkania">Kod pocztowy i miejscowość:</label>
+      <input
+        type="text"
+        id="p14-kod-zamieszkania"
+        name="p14-kod-zamieszkania"
+        required
+      />
+
+      <label for="p14-kraj-zamieszkania">Kraj:</label>
+      <input id="p14-kraj-zamieszkania" name="p14-kraj-zamieszkania" required />
+    </div>
+
+        <label for="p15"
+          >Czy żona/mąż osiągała/osiągał dochody w rozliczanym roku
+          podatkowym?</label
+        ><br />
+
+        <select id="p15-opcje" name="p15-opcje">
+          <option value="p15-opcja1">nie</option>
+          <option value="p15-opcja2">tak</option>
+        </select>
+
+        <div class="divp15">
+        <form
+          action="/przetwarzaj-plik"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label for="plik2">15.	Dołączyć wszystkie PIT-y i inne dokumenty
+            potwierdzające te dochody (żony/męża)
+            :</label>
+          <input type="file" id="plik2" name="plik2" multiple/><br /><br />
+        </form>
+      </div>
+
+      </div>
+    </div>
+
+      <label for="p16"
+        >Czy w 2023 roku (lub w roku, za który sporządzane jest zeznanie roczne)
+        Podatnik osiągał dochody w innych państwach, w tym w Polsce ?</label
+      ><br />
+      <select id="p16-opcje" name="p16-opcje">
+        <option value="p16-opcja1">nie</option>
+        <option value="p16-opcja2">tak</option>
+      </select>
+
+      <div class="divp16">
+        <form
+          action="/przetwarzaj-plik"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <label for="plik3">17.	Dołączyć wszystkie PIT-y i inne dokumenty potwierdzające dochody Podatnika, w szczególności
+            PIT-11, PIT-11A, PIT-40, PIT-B (z działalności gospodarczej), ewentualnie PIT-28. Jeżeli dziecko otrzymało PIT, to też proszę dołączyć. Przy osiąganych dochodach w innych państwach załączyć informacje roczne z zagranicznych urzędów podatkowych i innych instytucji. Należy jednoznacznie określić rok i kraj, z którego pochodzi rozliczenie. 
+            :</label>
+          <input type="file" id="plik3" name="plik3" multiple /><br /><br />
+        </form>
+      </div>
+
+      <label for="p17">18. Czy Podatnik chce skorzystać z ulg podatkowych</label
+      ><br />
+      
+      <select id="p17-opcje" name="p17-opcje">
+        <option value="p17-opcja1">nie</option>
+        <option value="p17-opcja2">tak</option>
+      </select>
+
+<div class="divp17" id="divp17">
+    <label>Wybierz ulgi:</label><br />
+    
+    <!--  -->
+    <label for="p18-opcja1">Ulga na dziecko<input type="checkbox" id="p18-opcja1" name="p18-opcje[]" value="Ulga na dziecko"></label><br>
+
+    <div id="ukrytyDiv1" class="ukrytyDiv" style="display:none;">
+      <div id="dziecko1">
+        <label for="imie1">Imię:</label>
+        <input type="text" id="imie1" name="imie1" required><br>
+
+        <label for="dataUrodzenia1">Data urodzenia:</label>
+        <input type="date" id="dataUrodzenia1" name="dataUrodzenia1" required><br>
+
+        <label for="pesel1">PESEL:</label>
+        <input type="text" id="pesel1" name="pesel1" required><br>
+    </div>
+
+    <button id="dodajDzieckoBtn">Dodaj kolejne dziecko</button>
+  </div>
+
+<!--  -->
+    <label for="p18-opcja2">Wpłaty na IKZE<input type="checkbox" id="p18-opcja2" name="p18-opcje[]" value="Wpłaty na IKZE"></label><br>
+
+    <div id="ukrytyDiv2" class="ukrytyDiv" style="display:none;">
+      <label for="dokumentSkladek">Załącz dokument potwierdzający wartość zapłaconych lub pobranych składek, ewentualnie podaj kwotę:</label>
+    <br>
+    <input type="file" id="dokumentSkladek" name="dokumentSkladek" multiple>
+    <br>
+    <label for="kwotaSkladek">Podaj kwotę (jeśli nie załączasz dokumentu):</label>
+    <input type="number" id="kwotaSkladek" name="kwotaSkladek">
+  </div>
+
+
+  <!--  -->
+    <label for="p18-opcja3">Ulga rehabilitacyjna<input type="checkbox" id="p18-opcja3" name="p18-opcje[]" value="Ulga rehabilitacyjna"></label><br>
+
+   <div id="ukrytyDiv3" class="ukrytyDiv" style="display:none;">
+    <label for="faktury">Załącz faktury za leki, sprzęt rehabilitacyjny, inne:</label>
+    <br>
+    <input type="file" id="faktury" name="faktury" multiple>
+    <br>
+    <label for="stopienNiepelnosprawnosci">Podaj stopień niepełnosprawności:</label>
+    <input type="text" id="stopienNiepelnosprawnosci" name="stopienNiepelnosprawnosci">
+    <br>
+    <label for="dowodWlasnosciSamochodu">Załącz informacje potwierdzające własność samochodu osobowego:</label>
+    <input type="file" id="dowodWlasnosciSamochodu" name="dowodWlasnosciSamochodu" multiple>
+  </div>
+
+
+
+  <!--  -->
+    <label for="p18-opcja4">Ulga honorowego krwiodawcy <input type="checkbox" id="p18-opcja4" name="p18-opcje[]" value="Ulga honorowego krwiodawcy"></label><br>
+
+   <div id="ukrytyDiv4" class="ukrytyDiv" style="display:none;">
+    <label for="zaswiadczenieKrwiodawstwa">Załącz zaświadczenie ze stacji krwiodawstwa o ilości oddanej krwi lub osocza:</label>
+    <br>
+    <input type="file" id="zaswiadczenieKrwiodawstwa" name="zaswiadczenieKrwiodawstwa" multiple>
+
+  </div>
+
+
+
+  <!--  -->
+    <label for="p18-opcja5">Ulga na Internet <input type="checkbox" id="p18-opcja5" name="p18-opcje[]" value="Ulga na Internet"></label><br>
+
+   <div id="ukrytyDiv5" class="ukrytyDiv" style="display:none;">
+          <label for="fakturyInternet">Załącz faktury i potwierdzenia zapłaty za usługi Internetowe:</label>
+    <br>
+    <input type="file" id="fakturyInternet" name="fakturyInternet" multiple>
+    <br>
+    <label for="ulgaInternet">Czy korzystałeś z ulgi odliczenia wydatków na Internet? Jeśli tak, podaj lata:</label>
+    <br>
+    <input type="text" id="ulgaInternet" name="ulgaInternet" placeholder="Podaj lata (np. 2022, 2023)">
+
+  </div>
+
+
+
+  <!--  -->
+    <label for="p18-opcja6">Darowizny <input type="checkbox" id="p18-opcja6" name="p18-opcje[]" value="Darowizny"></label><br>
+
+   <div id="ukrytyDiv6" class="ukrytyDiv" style="display:none;">
+    <div id="darowizna1">
+      <label for="potwierdzenieDarowizny1">Załącz potwierdzenie darowizny:</label>
+      <br>
+      <input type="file" id="potwierdzenieDarowizny1" name="potwierdzenieDarowizny1">
+      <br>
+      <label for="nazwaOrganizacji1">Nazwa organizacji:</label>
+      <br>
+      <input type="text" id="nazwaOrganizacji1" name="nazwaOrganizacji1">
+      <br>
+      <label for="adresOrganizacji1">Adres organizacji:</label>
+      <br>
+      <input type="text" id="adresOrganizacji1" name="adresOrganizacji1">
+  </div>
+  <button id="dodajDarowizneBtn">Dodaj kolejną darowiznę</button>
+</div>
+ 
+
+ 
+ <!--  -->
+ <label for="p18-opcja7">Ulga termomodernizacyjna  <input type="checkbox" id="p18-opcja7" name="p18-opcje[]" value="termomodernizacyjna"></label><br>
+
+ <div id="ukrytyDiv7" class="ukrytyDiv" style="display:none;">
+        <label for="fakturyRemont">Załącz faktury potwierdzające poniesione wydatki na remont:</label>
+    <br>
+    <input type="file" id="fakturyRemont" name="fakturyRemont" multiple>
+</div> 
+
+
+  <!--  -->
+    <label for="p18-opcja8">Inne ulgi <input type="checkbox" id="p18-opcja8" name="p18-opcje[]" value="Inne ulgi"></label><br>
+
+<div id="ukrytyDiv8" class="ukrytyDiv" style="display:none;">
+          <label for="inneDokumenty">Załącz inne dokumenty lub informacje:</label>
+    <br>
+    <input type="file" id="inneDokumenty" name="inneDokumenty" multiple>
+    <br>
+    <label for="inneInformacje">Dodatkowe informacje:</label>
+    <br>
+    <textarea id="inneInformacje" name="inneInformacje" rows="4" cols="50"></textarea>
+
+  </div>
+    
+</div>
+
+      <label for="p19"
+        >Celem wysłania zeznania rocznego przez Internet konieczne jest podanie
+        przychodu za 2022 rok. Proszę załączyć PIT-37 lub PIT-36 Podatnika za
+        2022 rok. PIT-u nie muszą załączać Podatnicy, których rozliczałam za
+        ubiegły rok. PIT za 2022 rok można pobrać ze strony <a href="https://www.podatki.gov.pl" target="_blank">podatki.gov.pl</a> 
+        wpisując w wyszukiwarkę „Twój e-PIT”.</label
+      >
+      <input type="file" id="plik4" name="plik4" multiple /><br /><br />
+    </form>
+    <label for="p20"
+      >Podać okres pobytu w Norwegii – najlepiej daty od kiedy do kiedy.</label
+    >
+
+    <div id="dateInputsContainer">
+      <div class="date-inputs">
+          <label>Data przyjazdu:</label>
+          <input type="date" id="arrivalDate1" name="arrivalDate1">
+          <label>Data wyjazdu:</label>
+          <input type="date" id="departureDate1" name="departureDate1" onchange="calculateTotalDays()">
+      </div>
+  </div>
+  <button type="button" onclick="addDateInputs()">Dodaj kolejny zestaw dat</button>
+  <br><br>
+  <div id="totalDays"></div>
+
+
+
+    <label for="p21">
+      21. Nr KRS organizacji pożytku publicznego i cel szczegółowy, której osoba
+      rozliczająca się chce przekazać 1,5% swojego podatku – (można przekazać
+      1,5 % tylko wtedy, gdy w rozliczeniu wychodzi podatek należny do urzędu
+      skarbowego).
+    </label>
+    <input type="text" id="p21" name="p21" required />
+
+    <label for="p22">
+      22. W przypadku wspólnego rozliczania się ze współmałżonkiem koniecznie
+      proszę podać czy żona/mąż przypadkiem już się nie rozliczyli samodzielnie
+      i czy otrzymali zwrot podatku.
+    </label>
+    <input type="text" id="p22" name="p22" required />
+
+    <label for="p23"
+      >Powstałe wątpliwości będą wyjaśniane w kontakcie z Podatnikiem.</label
+    >
+
+    <h3>
+      Uwagi : Podanie nieprawidłowych danych osobowych takich jak nazwisko,
+      pesel, adres zamieszkania, kwota przychodu za 2022 r. spowoduje brak
+      możliwości wysłania zeznania do US. Natomiast podanie niekompletnych
+      informacji o osiąganych dochodach Podatnika i osób z nim się
+      rozliczających będzie wpływać na prawidłowość sporządzanego rozliczenia i
+      może spowodować uszczuplenie zobowiązania podatkowego, a co za tym idzie
+      sankcje karne.
+    </h3>
+  </form>
+
+
+  <form id="contactForm">
+    <!-- Tutaj dodaj pozostałe pola formularza -->
+
+    <button type="button" id="generatePdfBtn">Wyslij</button>
+  </form>
+
+    <script src="./scripts/scriptForm.js"></script>
+    <script src= "./scripts/dateCheck.js"></script>
+    <script src="./scripts/ulgi.js"></script>
+    <script src="./scripts/mailCheck.js"></script>
+    <script src="./scripts/peselCheck.js"></script>
+  </body>
+</html>
