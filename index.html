@@ -1,214 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style/formStyle.css" />
-    <link rel="stylesheet" href="./style/dateCheck.css" />
-  </head>
-  <body>
-    <h1>
-      Dane klienta do rozliczenia PIT w Polsce z uwzględnieniem dochodów z
-      Norwegii
-    </h1>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularz PIT</title>
+  <link rel="stylesheet" href="./style/formStyle.css">
+  <link rel="stylesheet" href="./style/dateCheck.css">
+</head>
+<body>
+  <h1>Dane klienta do rozliczenia PIT w Polsce z uwzględnieniem dochodów z Norwegii</h1>
 
-    <!-- FORM -->
-    <form id="contactForm">
-      <h3>1.</h3>
+  <!-- FORM -->
+  <form action="process_form.php" method="post" enctype="multipart/form-data" id="contactForm">
 
-      <label for="p1">Imię:</label>
-      <input type="text" id="p1" name="p1" required />
+    <h3>1.</h3>
+    <label for="p1">Imię:</label>
+    <input type="text" id="p1" name="p1" required>
 
-      <h3>2.</h3>
-      <label for="p2">Nazwisko:</label>
-      <input type="text" id="p2" name="p2" required />
+    <h3>2.</h3>
+    <label for="p2">Nazwisko:</label>
+    <input type="text" id="p2" name="p2" required>
 
-      <h3>3.</h3>
-      <label for="p3">Numer telefonu:</label>
-      <input
-        type="tel"
-        id="p3"
-        name="p3"
-        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
-        placeholder="123-456-789"
-        required
-      />
+    <h3>3.</h3>
+    <label for="p3">Numer telefonu:</label>
+    <input type="tel" id="p3" name="p3" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" placeholder="123-456-789" required>
 
-      <h3>4.</h3>
-      <label for="p4">Adres e-mail:</label>
-      <input
-        type="email"
-        id="p4"
-        name="p4"
-        placeholder="wpisz@twójemail.com"
-        required
-      />
+    <h3>4.</h3>
+    <label for="p4">Adres e-mail:</label>
+    <input type="email" id="p4" name="p4" placeholder="wpisz@twójemail.com" required>
 
-      <h3>5.</h3>
-      <label for="p5">PESEL:</label>
-      <input type="number" id="p5" name="p5" required />
+    <h3>5.</h3>
+    <label for="p5">PESEL:</label>
+    <input type="number" id="p5" name="p5" required>
 
-      <h3>6.</h3>
-      <label for="p6"
-        >Adres zamieszkania (to adres, który Podatnik podaje w PIT przy
-        rozliczeniu w Urzędzie Skarbowym):</label
-      >
-      <label for="p6-ulica-zamieszkania">Ulica i numer domu:</label>
-      <input
-        type="text"
-        id="p6-ulica-zamieszkania"
-        name="p6-ulica-zamieszkania"
-        required
-      />
+    <h3>6.</h3>
+    <label for="p6">Adres zamieszkania:</label>
+    <label for="p6-ulica-zamieszkania">Ulica i numer domu:</label>
+    <input type="text" id="p6-ulica-zamieszkania" name="p6-ulica-zamieszkania" required>
+    <label for="p6-kod-zamieszkania">Kod pocztowy i miejscowość:</label>
+    <input type="text" id="p6-kod-zamieszkania" name="p6-kod-zamieszkania" required>
+    <label for="p6-kraj-zamieszkania">Kraj:</label>
+    <input id="p6-kraj-zamieszkania" name="p6-kraj-zamieszkania" required>
 
-      <label for="p6-kod-zamieszkania">Kod pocztowy i miejscowość:</label>
-      <input
-        type="text"
-        id="p6-kod-zamieszkania"
-        name="p6-kod-zamieszkania"
-        required
-      />
+    <h3>7.</h3>
+    <h2>Nazwa i adres Urzędu Skarbowego</h2>
+    <label for="p7">Nazwa Urzędu Skarbowego:</label>
+    <input type="text" id="p7" name="p7" required>
+    <label for="p7-ulica-us">Ulica i numer domu:</label>
+    <input type="text" id="p7-ulica-us" name="p7-ulica-us" required>
+    <label for="p7-kod-us">Kod pocztowy i miejscowość:</label>
+    <input type="text" id="p7-kod-us" name="p7-kod-us" required>
+    <label for="p7-kraj-us">Kraj:</label>
+    <input id="p7-kraj-us" name="p7-kraj-us" required>
 
+    <h3>8.</h3>
+    <label for="p8">Czy w 2023 roku Podatnik prowadził działalność gospodarczą?</label>
+    <select id="p8-opcje" name="p8-opcje">
+      <option value="p8-opcja1">tak</option>
+      <option value="p8-opcja2">nie</option>
+    </select>
 
-      <label for="p6-kraj-zamieszkania">Kraj:</label>
-      <input id="p6-kraj-zamieszkania" name="p6-kraj-zamieszkania" required />
+    <div class="divp9">
+      <h3>9.</h3>
+      <label for="p9">NIP:</label>
+      <input type="number" id="p9" name="p9" required>
 
-      <h3>7.</h3>
-      <h2>Nazwa i adres Urzędu Skarbowego</h2>
-      <label for="p7">Nazwa Urzędu Skarbowego:</label>
-      <input type="text" id="p7" name="p7" required />
+      <h3>10.</h3>
+      <label for="p10">Jaka forma opodatkowania:</label><br>
+      <select id="p10-opcje" name="p10-opcje">
+        <option value="p10-opcja1">książka rozchodów/przychodów</option>
+        <option value="p10-opcja2">ryczałt lub karta podatkowa</option>
+      </select><br>
 
-      <label for="p7-ulica-us">Ulica i numer domu:</label>
-      <input type="text" id="p7-ulica-us" name="p7-ulica-us" required />
+      <div class="divp10">
+        <select id="p10a-opcje" name="p10a-opcje">
+          <option value="p10a-opcja1">Skala podatkowa</option>
+          <option value="p10a-opcja2">Podatek liniowy</option>
+          <option value="p10a-opcja3" selected>wybierz</option>
+        </select>
+      </div>
 
-      <label for="p7-kod-us">Kod pocztowy i miejscowość:</label>
-      <input type="text" id="p7-kod-us" name="p7-kod-us" required />
+      <div class="div7">
+        <label>Brak możliwości rozliczenia się ze współmałżonkiem</label>
+      </div>
 
-      <label for="p7-kraj-us">Kraj:</label>
-      <input id="p7-kraj-us" name="p7-kraj-us" required />
-
-      <h3>8.</h3>
-      <label for="p8"
-        >Czy w 2023 roku (lub w roku, za który sporządzane jest zeznanie roczne)
-        Podatnik prowadził działalność gospodarczą ? Należy podać nawet wtedy,
-        gdy działalność była zawieszona przez cały rok?</label
-      >
-      <select id="p8-opcje" name="p8-opcje">
-        <option value="p8-opcja1">tak</option>
-        <option value="p8-opcja2">nie</option>
-      </select>
-
-      <div class="divp9">
-        <h3>9.</h3>
-        <label id="p9" for="p9">NIP:</label>
-        <input type="number" id="p9" name="p9" required />
-
-        <h3>10.</h3>
-        <label for="p10">Jaka forma opodatkowania</label><br />
-        <select id="p10-opcje" name="p10-opcje">
-          <option value="p10-opcja1">ksiazka rozchodow/przychodow</option>
-          <option value="p10-opcja2">
-            ryczalt lub karta podatkowa
-          </option></select
-        ><br />
-
-        <div class="divp10">
-          <select id="p10a-opcje" name="p10a-opcje">
-            <option value="p10a-opcja1">Skala podatkowa</option>
-            <option value="p10a-opcja2">Podatek liniowy</option>
-            <option value="p10a-opcja3" selected>wybierz</option>
-          </select>
-        </div>
-
-        <div class="div7" >
-          <label>Brak możliwości rozliczenia się ze współmałżonkiem </label>
-        </div>
-
-        <div class="divPlik10">
-        <form 
-          action="/przetwarzaj-plik"
-          method="post"
-          enctype="multipart/form-data"
-        >
+      <div class="divPlik10">
+        <form action="/przetwarzaj-plik" method="post" enctype="multipart/form-data">
           <label for="plik1">Wybierz plik do przesłania:</label>
-          <input type="file" id="plik1" name="plik1" /><br /><br />
+          <input type="file" id="plik1" name="plik1"><br><br>
         </form>
       </div>
-      </div>
-
-
-
-
-      <h3>11.</h3>
-      <label for="p11">Czy Podatnik chce się rozliczyć z żoną/mężem</label
-      ><br />
-      <select id="p11-opcje" name="p11-opcje">
-        <option value="p11-opcja1">tak</option>
-        <option value="p11-opcja2" selected >nie</option>
-      </select>
-
-      <!-- jesli tak -->
-      <div class="divp11">
-        <label for="p12">Imię zony/meza:</label>
-        <input type="text" id="p12" name="p12" required />
-
-        <label for="p13">PESEL:</label>
-        <input type="number" id="p13" name="p13" required />
-
-        <label for="p14"
-          >Czy adres zamieszkania żony/męża jest taki sam jak Podatnika? </label
-        ><br />
-
-        <select id="p14-opcje" name="p14-opcje">
-          <option value="p14-opcja1">nie</option>
-          <option value="p14-opcja2">tak</option>
-        </select>
-
-        <div class="divp14">
-        <h2>adres</h2>
-        <label for="p14-ulica-zamieszkania">Ulica i numer domu:</label>
-      <input
-        type="text"
-        id="p14-ulica-zamieszkania"
-        name="p14-ulica-zamieszkania"
-        required
-      />
-
-      <label for="p14-kod-zamieszkania">Kod pocztowy i miejscowość:</label>
-      <input
-        type="text"
-        id="p14-kod-zamieszkania"
-        name="p14-kod-zamieszkania"
-        required
-      />
-
-      <label for="p14-kraj-zamieszkania">Kraj:</label>
-      <input id="p14-kraj-zamieszkania" name="p14-kraj-zamieszkania" required />
     </div>
 
-        <label for="p15"
-          >Czy żona/mąż osiągała/osiągał dochody w rozliczanym roku
-          podatkowym?</label
-        ><br />
+    <h3>11.</h3>
+    <label for="p11">Czy Podatnik chce się rozliczyć z żoną/mężem?</label><br>
+    <select id="p11-opcje" name="p11-opcje">
+      <option value="p11-opcja1">tak</option>
+      <option value="p11-opcja2" selected>nie</option>
+    </select>
 
-        <select id="p15-opcje" name="p15-opcje">
-          <option value="p15-opcja1">nie</option>
-          <option value="p15-opcja2">tak</option>
-        </select>
+    <!-- jesli tak -->
+    <div class="divp11">
+      <label for="p12">Imię żony/męża:</label>
+      <input type="text" id="p12" name="p12" required>
+      <label for="p13">PESEL:</label>
+      <input type="number" id="p13" name="p13" required>
+      <label for="p14">Czy adres żony/męża jest taki sam jak Podatnika?</label><br>
+      <select id="p14-opcje" name="p14-opcje">
+        <option value="p14-opcja1">nie</option>
+        <option value="p14-opcja2">tak</option>
+      </select>
 
-        <div class="divp15">
-        <form
-          action="/przetwarzaj-plik"
-          method="post"
-          enctype="multipart/form-data"
-        >
-          <label for="plik2">15.	Dołączyć wszystkie PIT-y i inne dokumenty
-            potwierdzające te dochody (żony/męża)
-            :</label>
-          <input type="file" id="plik2" name="plik2" multiple/><br /><br />
+      <div class="divp14">
+        <h2>Adres</h2>
+        <label for="p14-ulica-zamieszkania">Ulica i numer domu:</label>
+        <input type="text" id="p14-ulica-zamieszkania" name="p14-ulica-zamieszkania" required>
+        <label for="p14-kod-zamieszkania">Kod pocztowy i miejscowość:</label>
+        <input type="text" id="p14-kod-zamieszkania" name="p14-kod-zamieszkania" required>
+        <label for="p14-kraj-zamieszkania">Kraj:</label>
+        <input id="p14-kraj-zamieszkania" name="p14-kraj-zamieszkania" required>
+      </div>
+
+      <label for="p15">Czy żona/mąż osiągała/osiągał dochody w rozliczanym roku podatkowym?</label><br>
+      <select id="p15-opcje" name="p15-opcje">
+        <option value="p15-opcja1">nie</option>
+        <option value="p15-opcja2">tak</option>
+      </select>
+
+      <div class="divp15">
+        <form action="/przetwarzaj-plik" method="post" enctype="multipart/form-data">
+          <label for="plik2">Dołączyć wszystkie PIT-y i inne dokumenty potwierdzające te dochody (żony/męża):</label>
+          <input type="file" id="plik2" name="plik2" multiple><br><br>
         </form>
       </div>
+
+    </div>
 
       </div>
     </div>
@@ -430,17 +356,18 @@
   
     <!-- Tutaj dodaj pozostałe pola formularza -->
 
-    <button type="button" id="generatePdfBtn" onclick="saveAndSendForm()">Wyslij</button>
+    <button type="button" id="generatePdfBtn" onclick="saveAndSendForm()">Wyślij</button>
   </form>
 
-    <script src="./scripts/scriptForm.js"></script>
-    <script src="./scripts/dateCheck.js"></script>
-    <script src="./scripts/ulgi.js"></script>
-    <script src="./scripts/mailCheck.js"></script>
-    <script src="./scripts/peselCheck.js"></script>
-    <script src="./scripts/sender.js"></script>
-    <!--  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  </body>
+  <!-- Skrypty -->
+  <script src="./scripts/scriptForm.js"></script>
+  <script src="./scripts/dateCheck.js"></script>
+  <script src="./scripts/ulgi.js"></script>
+  <script src="./scripts/mailCheck.js"></script>
+  <script src="./scripts/peselCheck.js"></script>
+  <!-- <script src="./scripts/sender.js"></script> -->
+  <!-- Zewnętrzne biblioteki -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</body>
 </html>
